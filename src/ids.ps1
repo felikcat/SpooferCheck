@@ -3,8 +3,9 @@ Write-Log "`n-- USB --"
 $usbDevices = Get-WmiObject Win32_USBControllerDevice
 
 if ($usbDevices.Count -eq 0) {
-    Write-Host "No USB devices found."
-} else {
+    Write-Log "No USB devices found."
+}
+else {
     foreach ($device in $usbDevices) {
         $deviceInfo = [Wmi]$device.Dependent
         
@@ -15,7 +16,7 @@ if ($usbDevices.Count -eq 0) {
         )
         
         Write-Props $properties
-        Write-Host ""
+        Write-Log ""
     }
 }
 #endregion
