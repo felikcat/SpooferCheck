@@ -1,0 +1,20 @@
+== About
+.This is a PowerShell script to check the HWIDs for the following:
+* Disk / Drive
+* EFI
+* Monitor / Display
+* Motherboard / SMBIOS
+* Network
+* Nvidia GPU
+* RAM / Memory
+* TPM
+* USB
+
+It does not check for traces that anti-cheats pick up on.
+
+This script also includes a bare-bones hypervisor detector; https://github.com/kernelwernel/VMAware[VMAware] and https://github.com/LordNoteworthy/al-khaser[al-khaser] are much more fleshed out for that use case.
+
+== Usage
+. Click on 'Code', then 'Download ZIP'.
+. Extract the ZIP, then open `Run.bat`.
+- Logs will be created each run, so you can easily compare between results using a diff tool like https://winmerge.org/[WinMerge].
