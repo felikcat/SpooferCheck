@@ -1,26 +1,3 @@
-#region USB
-Write-Log "`n-- USB --"
-$usbDevices = Get-WmiObject Win32_USBControllerDevice
-
-if ($usbDevices.Count -eq 0) {
-    Write-Log "No USB devices found."
-}
-else {
-    foreach ($device in $usbDevices) {
-        $deviceInfo = [Wmi]$device.Dependent
-        
-        $properties = @(
-            @{ Name = "Name"; Value = $deviceInfo.Description },
-            @{ Name = "ID"; Value = $deviceInfo.DeviceID },
-            @{ Name = "Serial"; Value = ($deviceInfo.DeviceID -split '\\')[-1] }
-        )
-        
-        Write-Props $properties
-        Write-Log ""
-    }
-}
-#endregion
-
 #region HV detections
 Write-Log "`n-- Hypervisor --"
 
